@@ -1,0 +1,121 @@
+*, html {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.content {
+  padding: 0 1em;
+}
+
+body {
+    color: #bfbfbf;
+    background: black;
+    background-image: url('./pics/background-algue2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 99vh;
+}
+
+footer {
+
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+}
+
+footer > h2 {
+  padding: 0.5em;
+}
+
+h1 {
+    color: white;
+}
+
+hr {
+  height: 1px;
+  background-color: white;
+  border-radius: 100px;
+  color: white;
+}
+
+header > hr {
+  margin: 0 5em;
+}
+
+footer > hr {
+  margin: 0 3.5em;
+}
+
+nav {
+  /*width: auto;*/
+  display: flex;
+  /*padding: 0 1em;*/
+  margin: 0 4em;
+  font-size: 1.5em;
+  align-items: center;
+}
+
+.logo > a, .nav-bar > a {
+  text-decoration: none;
+  color: white;
+  padding: 1em;
+}
+
+
+
+.logo {
+  /*display: flex;*/
+  width: 50%;
+}
+
+.nav-bar {
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  font-size: 2.5em;
+}
+
+.buttons {
+  padding: 1em;
+}
+
+.button > a {
+  text-decoration: none;
+}
+
+.button {
+  font-size: 1em;
+  background-color:rgba(0, 0, 0, 0);
+  color: white;
+  border-radius: 10em;
+  padding: 0.5em;
+  border-color: white;
+  font-weight: bold;
+  border-width: 0;
+  border-radius: 5px;
+  border-style: solid;
+  background: #2fc974;
+  color: #fff;
+}
+
+.button:hover {
+  background: #22d472;
+}
+
+.button:active {
+  background: #138747;
+}

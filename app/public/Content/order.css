@@ -1,0 +1,58 @@
+#order-info > tr > th {
+  padding-right: 10em;
+}
+
+section {
+  padding: 1em;
+  text-align: left;
+  max-width: 1000px;
+  /*margin-left: 1em;*/
+  margin: auto;
+}
+
+.order-hr {
+  margin: 0 2em;
+}
+
+th {
+  padding-right: 2em;
+}
+
+.type-col-item {
+  padding-right: 1em;
+}
+
+.adresses {
+  display: flex;
+
+}
+
+#billing-adress {
+  padding-right: 1em;
+}
+
+.products-section {
+  padding: 1em 0;
+}
+
+.order-list {
+  max-width: 600px;
+  margin: auto;
+}
+
+#orderListH2 {
+  margin-bottom: 2em;
+}
+
+#product_table_head {
+  text-align: center;
+  padding-bottom: 0.6em;
+}
+
+.product-rows > td {
+  padding-right: 1em;
+}
+
+.add-button {
+  font-size: 0.8em;
+}

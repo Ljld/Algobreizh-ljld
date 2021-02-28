@@ -1,0 +1,44 @@
+version: '3'
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+            - ./app:/app
+    php:
+        build:
+            context: .
+            dockerfile: PHP.Dockerfile
+        volumes:
+            - ./app:/app
+    mysql:
+        image: mariadb:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 'root'
+            MYSQL_USER: 'algobreizh'
+            MYSQL_PASSWORD: 'algobreizh'
+            MYSQL_DATABASE: 'algobreizh'
+        volumes:
+            - mysqldata:/var/lib/mysql
+        ports:
+            - 3306:3306
+    phpmyadmin:
+        links:
+            - mysql:mysql
+        image: phpmyadmin
+        container_name: phpmyadmin
+        environment:
+            MYSQL_USER: 'algobreizh'
+            MYSQL_PASSWORD: 'algobreizh'
+            MYSQL_ROOT_PASSWORD: 'root'
+            PMA_ARBITRARY: '1'
+            PMA_HOST: '127.0.0.1'
+        restart: always
+        ports:
+            - 8080:80
+        volumes:
+            - /sessions
+volumes:
+    mysqldata: {}
