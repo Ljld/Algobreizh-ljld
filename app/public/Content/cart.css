@@ -1,0 +1,29 @@
+.delete-btn {
+    font-size: 0.5em;
+}
+
+.valid-btn {
+    margin: auto;
+    width: 15em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+}
+
+.adresses-selects > select > option {
+    color: green;
+    font-size: medium;
+    padding: 1em;;
+}
+
+.adresses-selects > select {
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+.adresses-selects > * {
+    color: black;
+}
+
+.adresses-selects > h3 {
+    color: white;
+}

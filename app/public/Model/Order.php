@@ -27,6 +27,20 @@ class Order extends Model {
       return $orders;
     }
 
+    public function sendOrder($order_id) {
+      $sql = "UPDATE orders 
+              SET status = 'done',
+                  expedition_date = NOW()
+              WHERE order_id = {$order_id}";
+      $user = $this->executeRequest($sql);
+    }
+
+    public function getPendingOrders() {
+      $sql = "SELECT order_id, confirm_date FROM orders WHERE status = 'pending'";
+      $orders = $this->executeRequest($sql);
+      return $orders;
+    }
+
     public function getBills($user_id) {
       $sql = "SELECT order_id, confirm_date FROM orders WHERE user_id = '{$user_id}' and status = 'done'";
       $orders = $this->executeRequest($sql);

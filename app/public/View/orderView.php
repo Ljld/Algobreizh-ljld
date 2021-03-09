@@ -9,6 +9,7 @@
 <div class="content">
 
   <h2>Commande n°<?= $order['order_id'] ?></h2>
+  
 
   <section class="order-infos">
     <table id="order-info">
@@ -22,7 +23,7 @@
       </tr>
       <tr>
         <?php
-          if (!is_null($order['expedition_date'])) {
+          if ($order['expedition_date'] != '0000-00-00 00:00:00') {
         ?>
             <th>Date d'expédition</th>
             <td><?= $order['expedition_date'] ?></td>
@@ -109,6 +110,12 @@
 
     </table>
   </section>
+
+  <?php if ($user_type == 'employee') : ?>
+    <a href="index.php?action=ship-order&order_id=<?= $order['order_id'] ?>"><button class='button send-btn'>Expédier</button></a><br>
+  <?php endif; ?>
+
+  
 
 
 

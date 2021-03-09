@@ -22,7 +22,12 @@ class LoginControler {
     public function checkPassword($email, $password) {
       $hash = $this->user->getUserHash($email);
       if (password_verify($password, $hash)) {
-        $this->clientAreaCtrl->clientArea($email, $this->user->getName($email));
+        if ($this->user->getUserType($email) == 'customer') {
+          $this->clientAreaCtrl->clientArea($email, $this->user->getName($email));
+        }
+        else {
+          $this->clientAreaCtrl->adminArea($email);
+        }
       }
       else {
         echo 'INCORRECT !';

@@ -55,11 +55,29 @@ class User extends Model {
       return $hash['password'];
     }
 
+    public function getUserType($email) {
+      $sql = "SELECT userType FROM users WHERE email = '{$email}'";
+      $type = $this->executeRequest($sql);
+      $type = $type->fetch();
+      return $type['userType'];
+    }
+
     public function getUserID($email) {
       $sql = "SELECT user_id FROM users WHERE email = '{$email}'";
       $user_id = $this->executeRequest($sql);
       $user_id = $user_id->fetch();
       return $user_id['user_id'];
+    }
+
+    public function getUserAdresses($email) {
+      $user_id = $this->getUserID($email);
+      $sql = "SELECT *
+              FROM adresses
+              WHERE user_id = {$user_id}";
+
+      $user_adresses = $this->executeRequest($sql);
+
+      return $user_adresses;
     }
 
 }

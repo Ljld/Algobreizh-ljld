@@ -9,8 +9,12 @@ function init() {
     initLogout();
   }
 
-  if (document.querySelector('#new-order-products-table')) {
+  if (document.querySelector('#new-order-products-list')) {
     initCart();
+  }
+
+  if (document.querySelector('#cart-products')) {
+    initCartPage();
   }
 }
 

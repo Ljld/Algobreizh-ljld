@@ -7,6 +7,7 @@ require_once 'Controler/SignUpControler.php';
 require_once 'Controler/LoginControler.php';
 require_once 'Controler/ClientAreaControler.php';
 require_once 'Controler/OrderControler.php';
+require_once 'Controler/CartControler.php';
 require_once 'View/View.php';
 
 class Router {
@@ -23,6 +24,7 @@ class Router {
         $this->loginCtrl = new LoginControler();
         $this->clientAreaCtrl = new ClientAreaControler();
         $this->orderCtrl = new OrderControler();
+        $this->cartCtrl = new CartControler();
     }
 
     // Route une requête entrante : exécution l'action associée
@@ -69,7 +71,7 @@ class Router {
                 }
 
                 else if ($_GET['action'] == 'order') {
-                  $this->orderCtrl->order($_GET['order_id']);
+                  $this->orderCtrl->order($_GET['order_id'], $_SESSION['email']);
                 }
 
                 else if ($_GET['action'] == 'order-list') {
@@ -84,13 +86,41 @@ class Router {
                   $this->orderCtrl->billList($_SESSION['email']);
                 }
 
+                else if ($_GET['action'] == 'add-to-cart') {
+                  //$qty = $this->getParam($_POST, 'qty');
+                  $this->cartCtrl->addToCart($_GET['product_id'], $_GET['qty']);
+                }
+
+                else if ($_GET['action'] == 'cart') {
+                  $this->cartCtrl->cart();
+                }
+
+                else if ($_GET['action'] == 'delete-line') {
+                  $this->cartCtrl->deleteLine($_GET['product_id']);
+                }
+
+                else if ($_GET['action'] == 'send-order') {
+                  $exp = $this->getParam($_POST, 'exp-add');
+                  $bill = $this->getParam($_POST, 'bill-add');
+                  $this->cartCtrl->sendOrder($exp, $bill);
+                }
+                else if ($_GET['action'] == 'ship-order') {
+                  $this->orderCtrl->shipOrder($_GET['order_id']);
+                }
+
                 else
                   throw new Exception("Action non valide");
             }
             else {  // aucune action définie : affichage de l'accueil
               if (isset($_SESSION['isLoggedIn'])) {
                 if ($_SESSION['isLoggedIn']) {
-                  $this->clientAreaCtrl->clientArea($_SESSION['name'], $_SESSION['name']);
+                  if ($_SESSION['email'] == 'prod@algobreizh.com') {
+                    $this->clientAreaCtrl->adminArea($_SESSION['email']);
+                  }
+                  else {
+                    $this->clientAreaCtrl->clientArea($_SESSION['name'], $_SESSION['name']);
+                  }
+                  
                 }
                 else {
                   $this->homePageCtrl->homePage();

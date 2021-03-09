@@ -1,12 +1,15 @@
-INSERT INTO products(ref, price) values ('Algue verte', 10);
-INSERT INTO products(ref, price) values ('Algue rouge', 15);
-INSERT INTO products(ref, price) values ('Algue jaune', 35);
+INSERT INTO products(ref, price, pic) values ('Algue verte', 10, 'algue-verte');
+INSERT INTO products(ref, price, pic) values ('Algue rouge', 15, 'algue-rouge');
+INSERT INTO products(ref, price, pic) values ('Algue jaune', 35, 'algue-jaune');
 
 INSERT INTO users(name, surname, civility, email, password, userType, registrationDate)
 values ('Lucas', 'Jeuland', 'M', 'lucas.jeuland@gmail.com', '$2y$10$VyPLCIqBX9/rODfoPsglrukakrgqiHSbQ.5hHuzX5j2E.1V0RrTIu', 'customer', NOW());
 
 INSERT INTO users(name, surname, civility, email, password, userType, registrationDate)
 values ('Howling', 'Wolf', 'M', 'howling.wolf@gmail.com', '$2y$10$6gdNpSgk8J2erCJsBqePRO6F40/cHtYCLWylWdyD.JD.cWIMyAzeu', 'customer', NOW());
+
+INSERT INTO users(name, surname, civility, email, password, userType, registrationDate)
+values ('Admin', 'Admin', 'M', 'prod@algobreizh.com', '$2y$10$/Nz4jPFR8/9yVGw3uBn33OjYD3Yj4zuAxell7r2tYLACsKdSerSc6', 'employee', NOW());
 
 INSERT INTO adresses(user_id, country, city, street, zip)
 values ('1', 'France', 'Rennes', '44 rue des digitales', '35000');

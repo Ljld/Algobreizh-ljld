@@ -4,7 +4,7 @@ const initLogout = () => {
   logOutBtn.addEventListener('click', (e) => {
     setTimeout(function() {
       document.location.reload();
-    }, 1500);
+    }, 100);
 
   });
 }

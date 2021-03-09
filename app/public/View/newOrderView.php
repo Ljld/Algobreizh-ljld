@@ -9,27 +9,28 @@
 <div class="content">
 
   <h2 id="azert">Nouvelle Commande</h2>
+  
+  <section id="new-order-products-list">
+    <?php foreach ($products as $product): ?>
 
-  <table id="new-order-products-table">
-    <thead>
-      <th>Produits</th>
-      <th>Quantité</th>
-      <th>Prix (€/kg)</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <?php foreach ($products as $product): ?>
+    <div class="product-card">
+      <form id="form-add-to-cart-_<?= $product['product_id'] ?>" class="add-to-cart-form" action="index.php?action=add-to-cart&product_id=<?= $product['product_id'] ?>"  method="post">
+        <img class="product-icon" src="/content/pics/<?= $product['pic'] ?>.jpeg" alt="<?= $product['pic'] ?>">
+        <p><?= $product['ref'] ?></p>
+        <p>Prix : <?= $product['price'] ?>€</p>
+        <div class="qte-line">
+          <p class='qte-p'>Qté : </p> <input id="qty" name='qty' class="input-qty input-qty_<?= $product['product_id'] ?>" type="number" min="1" max="50">
+        </div>
+        
+        <div class="add-btn-div">
+          <button type='submit' class='button add-button'>Ajouter</button>
+        </div>
+      </form> 
+    </div>
 
-        <tr class="product-row" id="<?= $product['product_id'] ?>">
-          <td id="<?= $product['product_id']."-Ref" ?>"><?= $product['ref'] ?></td>
-          <td id="<?= $product['product_id']."-Quantity" ?>"> <input type="text" size="3" name="" value=""> </td>
-          <td id="<?= $product['product_id']."-Price" ?>"><?= $product['price'] ?></td>
-          <td> <button class="button add-button" type="button" name="button">Ajouter</button> </td>
-        </tr>
+    
 
-      <?php endforeach; ?>
-    </tbody>
-  </table>
-
+    <?php endforeach; ?>
+  </section>
 
 </div> <!-- #content -->

@@ -5,7 +5,7 @@
 section {
   padding: 1em;
   text-align: left;
-  max-width: 1000px;
+  max-width: 10000px;
   /*margin-left: 1em;*/
   margin: auto;
 }
@@ -55,4 +55,52 @@ th {
 
 .add-button {
   font-size: 0.8em;
+  margin-top: 0.5em;
+}
+
+.add-btn-div {
+  text-align: center;
+}
+
+.product-icon {
+  width:200px;
+  border-radius: 4px;
+}
+
+#new-order-products-list {
+  display: flex;
+}
+
+.product-card {
+  padding: 0.5em 1em;
+  margin: 0.3em;
+  border: 5px solid #2fc974;
+  background-color: antiquewhite;
+  /*background-color: #2fc974;*/
+  border-radius: 4px;
+}
+
+.product-card > form > p {
+  color: grey;
+}
+
+.input-qty {
+  width: 50px;
+  color: black;
+  text-align: center;
+}
+
+.qte-line {
+  display: flex;
+  color: grey;
+}
+
+.qte-p {
+  margin-right: 0.3em;
+  color: grey;
+}
+
+.send-btn {
+  margin: auto;
+  width: 10em;
 }

@@ -1,24 +1,20 @@
 const initCart = () => {
-  let addBtnElts = document.getElementsByClassName('add-button');
-  let productRows = document.getElementsByClassName('product-row');
-  var cart = {
-    total_price: 0,
-    lines: [],
-    addLine: function(ref, productPrice, quantity) {
-      var line = {
-        ref: ref,
-        productPrice: productPrice,
-        quantity: quantity,
-        result: productPrice * quantity
+  $(document).ready(function() {
+    $('.add-to-cart-form').on("submit", function(event) {
+      $form = $(this); //wrap this in jQuery
+      var qty = $form.serialize();
+      if (qty != 'qty=') {
+        $.get($form.attr('action')+'&'+qty, {},
+          function (data, textStatus, jqXHR) {
+            alert(data.msg);
+          },
+          "json"
+        );
+        document.location.reload();
+      } else {
+        alert('Erreur : Quantité invalide !');
       }
-      this.lines.push(line);
-    }
-  };
-
-  addBtnElts.forEach((addBtn, i) => {
-    
-    addBtn.addEventListener("click", cart.addLine());
+      return false;
+    });
   });
-
-  //formElt.addEventListener("keyup", checkForm);
 }

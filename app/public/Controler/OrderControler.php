@@ -15,14 +15,15 @@ class OrderControler {
     }
 
 
-    public function order($order_id) {
+    public function order($order_id, $email) {
       $vue = new View("order");
       $current_order = $this->order->getOrderInfos($order_id);
       $current_order['exp_adress'] = $this->order->getAdress($current_order['expedition_adress_id']);
       $current_order['billing_adress'] = $this->order->getAdress($current_order['billing_adress_id']);
       $products = $this->order->getOrderProducts($order_id);
+      $user_type = $this->user->getUserType($email);
 
-      $vue->generate(array('order' => $current_order, 'products' => $products));
+      $vue->generate(array('order' => $current_order, 'products' => $products, 'user_type' => $user_type));
     }
 
     public function orderList($email) {
@@ -42,6 +43,14 @@ class OrderControler {
       $products = $this->order->getAllProducts();
       $vue->generate(array('products' => $products));
 
+    }
+
+    public function shipOrder($order_id) {
+      $this->order->sendOrder($order_id);
+      $msg = "La commande #{$order_id} a été expédiée !";
+      $vue = new View('msg');
+      $vue->generate(array('msg' => $msg));
+      
     }
 
 }
