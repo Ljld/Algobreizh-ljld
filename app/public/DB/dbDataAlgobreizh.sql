@@ -17,11 +17,11 @@ values ('1', 'France', 'Rennes', '44 rue des digitales', '35000');
 INSERT INTO adresses(user_id, country, city, street, zip)
 values ('2', 'Belgique', 'Bruxelles', '24 boulevard des oubliés', '45555');
 
-INSERT INTO orders(user_id, billing_adress_id, expedition_adress_id)
-values ('1', '1', '1');
+INSERT INTO orders(user_id, billing_adress_id, expedition_adress_id, total_price)
+values ('1', '1', '1', 345);
 
-INSERT INTO orders(user_id, billing_adress_id, expedition_adress_id)
-values ('2', '2', '2');
+INSERT INTO orders(user_id, billing_adress_id, expedition_adress_id, total_price)
+values ('2', '2', '2', 325);
 
 INSERT INTO order_items(order_id, product_id, quantity)
 values ('1', '1', '5');

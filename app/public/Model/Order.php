@@ -4,21 +4,11 @@ require_once 'Model/Model.php';
 
 class Order extends Model {
 
-    /** Renvoie la liste des billets du blog
-     *
-     * @return PDOStatement La liste des billets
-     */
-
     public function createOrder($user_id) {
         $sql = "INSERT INTO orders (user_id, surname, civility, email, password, userType)"
         . " values ('{$name}','{$surname}','{$civility}','{$email}', '{$password}', 'customer')";
 
         $user = $this->executeRequest($sql);
-        /*
-        if ($billet->rowCount() > 0)
-            return $billet->fetch();  // Accès à la première ligne de résultat
-        else
-            throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");*/
     }
 
     public function getOrders($user_id) {
@@ -115,19 +105,5 @@ class Order extends Model {
       $name = $name->fetch();
       return $name['name'];
     }
-
-    /*public function getname($email) {
-      $sql = "SELECT name FROM users WHERE email = '{$email}'";
-      $name = $this->executeRequest($sql);
-      $name = $name->fetch();
-      return $name['name'];
-    }
-
-    public function getUserHash($email) {
-      $sql = "SELECT password FROM users WHERE email = '{$email}'";
-      $hash = $this->executeRequest($sql);
-      $hash = $hash->fetch();
-      return $hash['password'];
-    }*/
 
 }

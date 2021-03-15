@@ -34,12 +34,4 @@ class LoginControler {
       }
 
     }
-
-    /*public function validSignUp($username, $email, $password) {
-      $vue = new View("validSignUp");
-      $vue->generate(array('username' => $username, 'email' => $email, 'password' => $password));
-      $this->user->createUser($username, $email, $password);
-    }*/
-
-
 }

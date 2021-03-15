@@ -83,6 +83,7 @@ nav {
   display: flex;
   width: 50%;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .content {
@@ -126,7 +127,7 @@ nav {
 
 .cart-icon {
   width: 2em;
-  margin-top: 0.5em;
+  /*margin-top: 0.5em;*/
   fill: honeydew;
 }
 
@@ -137,7 +138,7 @@ nav {
 .cart-badge {
   padding: 0.4em;
   margin-right: 0.8em;
-  margin-top: 0.8em;
+  /*margin-top: 0.8em;*/
   background-color: #2fc974;
   border-radius: 77px;
   height: 1em;

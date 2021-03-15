@@ -44,12 +44,13 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
       </script>
-      <script type="text/javascript" src='/JS/form.js'></script>
-      <script type="text/javascript" src='/JS/logout.js'></script>
-      <script type="text/javascript" src='/JS/cart.js'></script>
-      <script type="text/javascript" src='/JS/cartPage.js'></script>
+      <script type="text/javascript" src='./JS/form.js'></script>
+      <script type="text/javascript" src='./JS/logout.js'></script>
+      <script type="text/javascript" src='./JS/logoutNavBar.js'></script>
+      <script type="text/javascript" src='./JS/cart.js'></script>
+      <script type="text/javascript" src='./JS/cartPage.js'></script>
       <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-      <script type="module" src='/JS/swup.js'></script>
+      <script type="module" src='./JS/swup.js'></script>
 
 
     </body>

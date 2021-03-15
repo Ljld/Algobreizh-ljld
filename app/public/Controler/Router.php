@@ -44,6 +44,7 @@ class Router {
                 }
 
                 else if ($_GET['action'] == 'logout') {
+                  unset($_SESSION['isLoggedIn']);
                   session_destroy();
                   $this->loginCtrl->login();
                 }

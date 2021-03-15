@@ -9,6 +9,10 @@ function init() {
     initLogout();
   }
 
+  if (document.querySelector('#logOutBtnNavBar')) {
+    initLogoutNavBar();
+  }
+
   if (document.querySelector('#new-order-products-list')) {
     initCart();
   }

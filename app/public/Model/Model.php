@@ -37,8 +37,23 @@ abstract class Model {
     private function getDb() {
         if ($this->db == null) {
             // Création de la connexion
-            $this->db = new PDO('mysql:host=mysql;dbname=algobreizh;charset=utf8',
-                    'algobreizh', 'algobreizh',
+            // Si serveur de Dev
+            if ($_SERVER['SERVER_NAME'] == '') {
+                $host = 'mysql';
+                $dbname = 'algobreizh';
+                $user = 'algobreizh';
+                $mdp = 'algobreizh';
+            }
+            // Si serveur de prod
+            else {
+                $host = '91.216.107.183';
+                $dbname = 'lucas1515870';
+                $user = 'lucas1515870';
+                $mdp = '2pwwgz8dkk';
+            }
+
+            $this->db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8",
+                    "{$user}", "{$mdp}",
                     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         return $this->db;

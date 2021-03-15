@@ -15,7 +15,7 @@
 
     <div class="product-card">
       <form id="form-add-to-cart-_<?= $product['product_id'] ?>" class="add-to-cart-form" action="index.php?action=add-to-cart&product_id=<?= $product['product_id'] ?>"  method="post">
-        <img class="product-icon" src="/content/pics/<?= $product['pic'] ?>.jpeg" alt="<?= $product['pic'] ?>">
+        <img class="product-icon" src="./content/pics/<?= $product['pic'] ?>.jpeg" alt="<?= $product['pic'] ?>">
         <p><?= $product['ref'] ?></p>
         <p>Prix : <?= $product['price'] ?>€</p>
         <div class="qte-line">
