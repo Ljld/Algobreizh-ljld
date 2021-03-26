@@ -47,7 +47,7 @@ abstract class Model {
             // Si serveur de prod
             else {
                 $host = '91.216.107.183';
-                $dbname = 'lucas1515870';
+                $dbname = 'lucas1515870_2ljkqo';
                 $user = 'lucas1515870';
                 $mdp = '2pwwgz8dkk';
             }
