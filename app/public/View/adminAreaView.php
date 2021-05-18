@@ -14,6 +14,7 @@
 
 <div class="content">
 
+  <a href="index.php?action=customer-list"><button class="button">Gestion des clients</button></a>
 
   <h1>Commandes à valider</h1>
 

@@ -50,4 +50,25 @@ class User extends Model {
       return $user_adresses;
     }
 
+    public function getCustomers() {
+      $sql = "SELECT * FROM users where userType = 'customer'";
+
+      $customers = $this->executeRequest($sql);
+      return $customers;
+    }
+
+    public function deleteUser($user_id) {
+      $sql = "DELETE FROM users where user_id = {$user_id}";
+      $this->executeRequest($sql);
+    }
+
+    public function modifyEmail($user_id, $newEmail) {
+      $sql = "UPDATE users
+              SET email = '{$newEmail}'
+              WHERE user_id = {$user_id}
+      ";
+      $this->executeRequest($sql);
+
+    }
+
 }

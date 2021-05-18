@@ -8,6 +8,7 @@ require_once 'Controler/LoginControler.php';
 require_once 'Controler/ClientAreaControler.php';
 require_once 'Controler/OrderControler.php';
 require_once 'Controler/CartControler.php';
+require_once 'Controler/CustomersControler.php';
 require_once 'View/View.php';
 
 class Router {
@@ -17,6 +18,7 @@ class Router {
     private $loginCtrl;
     private $clientAreaCtrl;
     private $orderCtrl;
+    private $customersCtrl;
 
     public function __construct() {
         $this->homePageCtrl = new HomePageControler();
@@ -25,6 +27,7 @@ class Router {
         $this->clientAreaCtrl = new ClientAreaControler();
         $this->orderCtrl = new OrderControler();
         $this->cartCtrl = new CartControler();
+        $this->customersCtrl = new CustomersControler();
     }
 
     // Route une requête entrante : exécution l'action associée
@@ -107,6 +110,22 @@ class Router {
                 }
                 else if ($_GET['action'] == 'ship-order') {
                   $this->orderCtrl->shipOrder($_GET['order_id']);
+                }
+                else if ($_GET['action'] == 'customer-list') {
+                  $this->customersCtrl->customerList();
+                }
+                else if ($_GET['action'] == 'modify-customer') {
+                  $this->customersCtrl->modifyCustomer($_GET['user_id']);
+                }
+                else if ($_GET['action'] == 'update-email') {
+                  $this->customersCtrl->updateEmail($_GET['user_id'], $this->getParam($_POST, 'newEmail'));
+                }
+                else if ($_GET['action'] == 'delete-customer') {
+                  $this->customersCtrl->deleteCustomer($_GET['user_id']);
+                }
+
+                else if ($_GET['action'] == 'new-customer') {
+                  $this->customersCtrl->newCustomer();
                 }
 
                 else
